@@ -14,24 +14,30 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        EditText firstNumEditText = (EditText) findViewById(R.id.firstNumEditText);
+        EditText secondNumEditText = (EditText) findViewById(R.id.secondNumEditText);
+        TextView resultTextView = (TextView) findViewById(R.id.resultTextView);
+
 
         Button addBtn = (Button) findViewById(R.id.addBtn);
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText firstNumEditText = (EditText) findViewById(R.id.firstNumEditText);
-                EditText secondNumEditText = (EditText) findViewById(R.id.secondNumEditText);
-                TextView resultTextView = (TextView) findViewById(R.id.resultTextView);
-
                 int num1 = Integer.parseInt(firstNumEditText.getText().toString());
                 int num2 = Integer.parseInt(secondNumEditText.getText().toString());
                 int result = num1 + num2;
-
                 resultTextView.setText(Integer.toString(result));
-                //resultTextView.setText(result+"");
-
             }
         });
 
+        Button clearBtn = (Button) findViewById(R.id.clearBtn);
+        clearBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                firstNumEditText.setText("");
+                secondNumEditText.setText("");
+                resultTextView.setText("");
+            }
+        });
     }
 }
