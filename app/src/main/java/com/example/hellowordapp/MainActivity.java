@@ -1,6 +1,7 @@
 package com.example.hellowordapp;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,10 +24,12 @@ public class MainActivity extends AppCompatActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int num1 = Integer.parseInt(firstNumEditText.getText().toString());
-                int num2 = Integer.parseInt(secondNumEditText.getText().toString());
-                int result = num1 + num2;
-                resultTextView.setText(Integer.toString(result));
+                if(!TextUtils.isEmpty(firstNumEditText.getText().toString()) && !TextUtils.isEmpty(secondNumEditText.getText().toString())) {
+                    int num1 = Integer.parseInt(firstNumEditText.getText().toString());
+                    int num2 = Integer.parseInt(secondNumEditText.getText().toString());
+                    int result = num1 + num2;
+                    resultTextView.setText(Integer.toString(result));
+                }
             }
         });
 
